@@ -1,3 +1,3 @@
 export default function StatusFilters() {
-  return <div></div>;
+  return <div>Status Filters</div>;
 }

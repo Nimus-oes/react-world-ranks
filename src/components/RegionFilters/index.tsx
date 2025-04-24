@@ -1,3 +1,3 @@
 export default function RegionFilters() {
-  return <div></div>;
+  return <div>Region Filters</div>;
 }

@@ -1,3 +1,3 @@
 export default function CountryTable() {
-  return <div></div>;
+  return <div>Country Table</div>;
 }

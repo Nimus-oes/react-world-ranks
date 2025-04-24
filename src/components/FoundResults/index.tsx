@@ -1,3 +1,3 @@
 export default function FoundResults() {
-  return <div></div>;
+  return <div>Found Results</div>;
 }

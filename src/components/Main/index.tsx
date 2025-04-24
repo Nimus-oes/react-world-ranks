@@ -4,16 +4,23 @@ import RegionFilters from "../RegionFilters";
 import SearchBar from "../SearchBar";
 import SortDropdown from "../SortDropdown";
 import StatusFilters from "../StatusFilters";
+import styles from "./Main.module.css";
 
 export default function Main() {
   return (
-    <main>
-      <FoundResults />
-      <SearchBar />
-      <SortDropdown />
-      <RegionFilters />
-      <StatusFilters />
-      <CountryTable />
+    <main className={styles.main}>
+      <div className={styles.serachResults}>
+        <FoundResults />
+        <SearchBar />
+      </div>
+      <div className={styles.countryWrapper}>
+        <div className={styles.filters}>
+          <SortDropdown />
+          <RegionFilters />
+          <StatusFilters />
+        </div>
+        <CountryTable />
+      </div>
     </main>
   );
 }
