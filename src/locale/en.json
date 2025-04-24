@@ -1,0 +1,29 @@
+{
+  "found_results_feature_title": "Found {found_value}",
+  "found_value": {
+    "none": "0 country",
+    "one": "1 country",
+    "other": "%d countries"
+  },
+  "search_feature_title": "Search by Name or Region",
+  "sort_feature_title": "Sort by",
+  "sort_category_population": "Population",
+  "sort_category_name": "Name",
+  "sort_category_area": "Area",
+  "sort_category_region": "Region",
+  "region_feature_title": "Region",
+  "region_tag_americas": "Americas",
+  "region_tag_antarctic": "Antarctic",
+  "region_tag_africa": "Africa",
+  "region_tag_asia": "Asia",
+  "region_tag_europe": "Europe",
+  "region_tag_oceania": "Oceania",
+  "status_feature_title": "Status",
+  "status_option_un": "Member of the United Nations",
+  "status_option_independent": "Independent",
+  "country_table_header_flag": "Flag",
+  "country_table_header_name": "Name",
+  "country_table_header_population": "Population",
+  "country_table_header_region": "Region",
+  "country_table_header_area": "Area (km^2^)"
+}
