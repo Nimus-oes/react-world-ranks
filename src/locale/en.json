@@ -1,6 +1,6 @@
 {
   "found_results_feature_title": "Found {found_value}",
-  "found_value": {
+  "found_results_value": {
     "none": "0 country",
     "one": "1 country",
     "other": "%d countries"
