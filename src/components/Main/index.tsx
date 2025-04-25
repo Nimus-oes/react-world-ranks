@@ -9,7 +9,7 @@ import styles from "./Main.module.css";
 export default function Main() {
   return (
     <main className={styles.main}>
-      <div className={styles.serachResults}>
+      <div className={styles.searchResults}>
         <FoundResults />
         <SearchBar />
       </div>
@@ -19,7 +19,9 @@ export default function Main() {
           <RegionFilters />
           <StatusFilters />
         </div>
-        <CountryTable />
+        <div className={styles.country}>
+          <CountryTable />
+        </div>
       </div>
     </main>
   );
