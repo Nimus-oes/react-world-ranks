@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CountryTable from "../CountryTable";
 import FoundResults from "../FoundResults";
 import RegionFilters from "../RegionFilters";
@@ -7,20 +7,29 @@ import SortDropdown from "../SortDropdown";
 import StatusFilters from "../StatusFilters";
 import styles from "./Main.module.css";
 
-// "Americas"
-// "Antarctic"
-// "Africa"
-// "Asia"
-// "Europe"
-// "Oceania"
-// "Name"
-// "Population"
-// "Area"
-// "Region"
-// "Member of the United Nations"
-// "Independent"
+type SortByType = "Name" | "Population" | "Area" | "Region";
+type StatusType = "Member of the United Nations" | "Independent";
+type RegionType =
+  | "Americas"
+  | "Antarctic"
+  | "Africa"
+  | "Asia"
+  | "Europe"
+  | "Oceania";
+
+export interface FilterType {
+  sortBy: SortByType;
+  region: RegionType | undefined;
+  status: StatusType | undefined;
+}
 
 export default function Main() {
+  const [filters, setFilters] = useState<FilterType>({
+    sortBy: "Population",
+    region: undefined,
+    status: undefined,
+  });
+
   return (
     <main className={styles.main}>
       <div className={styles.searchResults}>
@@ -29,7 +38,7 @@ export default function Main() {
       </div>
       <div className={styles.countryWrapper}>
         <div className={styles.filters}>
-          <SortDropdown />
+          <SortDropdown filters={filters} setFilters={setFilters} />
           <RegionFilters />
           <StatusFilters />
         </div>
