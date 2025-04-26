@@ -23,6 +23,11 @@ export interface FilterType {
   status: StatusType | undefined;
 }
 
+export interface FilterProp {
+  filters: FilterType;
+  setFilters: React.Dispatch<React.SetStateAction<FilterType>>;
+}
+
 export default function Main() {
   const [filters, setFilters] = useState<FilterType>({
     sortBy: "Population",

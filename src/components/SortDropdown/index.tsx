@@ -1,9 +1,4 @@
-import type { FilterType } from "../Main";
-
-interface FilterProp {
-  filters: FilterType;
-  setFilters: React.Dispatch<React.SetStateAction<FilterType>>;
-}
+import type { FilterType, FilterProp } from "../Main";
 
 export default function SortDropdown({ filters, setFilters }: FilterProp) {
   return (
