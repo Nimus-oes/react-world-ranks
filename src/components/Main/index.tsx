@@ -55,7 +55,7 @@ export default function Main() {
     <main className={styles.main}>
       <div className={styles.searchResults}>
         <FoundResults />
-        <SearchBar />
+        <SearchBar filters={filters} setFilters={setFilters} />
       </div>
       <div className={styles.countryWrapper}>
         <div className={styles.filters}>
