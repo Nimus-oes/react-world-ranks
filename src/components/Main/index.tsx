@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import CountryTable from "../CountryTable";
 import FoundResults from "../FoundResults";
 import RegionFilters from "../RegionFilters";
@@ -5,6 +6,19 @@ import SearchBar from "../SearchBar";
 import SortDropdown from "../SortDropdown";
 import StatusFilters from "../StatusFilters";
 import styles from "./Main.module.css";
+
+// "Americas"
+// "Antarctic"
+// "Africa"
+// "Asia"
+// "Europe"
+// "Oceania"
+// "Name"
+// "Population"
+// "Area"
+// "Region"
+// "Member of the United Nations"
+// "Independent"
 
 export default function Main() {
   return (

@@ -1,3 +1,3 @@
 export default function SortDropdown() {
-  return <div>Sort Dropdown</div>;
+  return <div>Sort By</div>;
 }
