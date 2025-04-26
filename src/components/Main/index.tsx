@@ -19,20 +19,31 @@ type RegionType =
 
 export interface FilterType {
   sortBy: SortByType;
-  region: RegionType | undefined;
-  status: StatusType | undefined;
+  region: Record<RegionType, boolean>;
+  status: Record<StatusType, boolean>;
+  searchKey: string;
 }
 
-export interface FilterProp {
-  filters: FilterType;
+export interface SetFilterProp {
   setFilters: React.Dispatch<React.SetStateAction<FilterType>>;
 }
 
 export default function Main() {
   const [filters, setFilters] = useState<FilterType>({
     sortBy: "Population",
-    region: undefined,
-    status: undefined,
+    region: {
+      Americas: false,
+      Antarctic: false,
+      Africa: false,
+      Asia: false,
+      Europe: false,
+      Oceania: false,
+    },
+    status: {
+      "Member of the United Nations": false,
+      Independent: false,
+    },
+    searchKey: "",
   });
 
   return (
@@ -43,8 +54,8 @@ export default function Main() {
       </div>
       <div className={styles.countryWrapper}>
         <div className={styles.filters}>
-          <SortDropdown filters={filters} setFilters={setFilters} />
-          <RegionFilters />
+          <SortDropdown setFilters={setFilters} />
+          <RegionFilters setFilters={setFilters} />
           <StatusFilters />
         </div>
         <div className={styles.country}>
