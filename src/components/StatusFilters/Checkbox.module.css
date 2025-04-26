@@ -1,0 +1,49 @@
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+/* Visually hide native checkbox */
+.nativeCheckbox {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+/* When active & not selected */
+.customCheckbox {
+  width: 18px;
+  height: 18px;
+  border: 1px solid darkgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+}
+
+/* When selected*/
+.nativeCheckbox:checked + .customCheckbox {
+  background-color: royalblue;
+  border: 1px solid royalblue;
+}
+
+/* Add focus ring to all keyboard actions */
+.nativeCheckbox:focus-visible + .customCheckbox {
+  outline: 2px solid royalblue;
+  outline-offset: 1.5px;
+}
+
+/* When disabled */
+.nativeCheckbox:disabled + .customCheckbox {
+  background-color: lightgrey;
+}
+
+.labelText {
+  font-size: 20px;
+}

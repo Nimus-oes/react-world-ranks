@@ -28,6 +28,11 @@ export interface SetFilterProp {
   setFilters: React.Dispatch<React.SetStateAction<FilterType>>;
 }
 
+export interface FilterProp {
+  filters: FilterType;
+  setFilters: React.Dispatch<React.SetStateAction<FilterType>>;
+}
+
 export default function Main() {
   const [filters, setFilters] = useState<FilterType>({
     sortBy: "Population",
@@ -56,7 +61,7 @@ export default function Main() {
         <div className={styles.filters}>
           <SortDropdown setFilters={setFilters} />
           <RegionFilters setFilters={setFilters} />
-          <StatusFilters />
+          <StatusFilters filters={filters} setFilters={setFilters} />
         </div>
         <div className={styles.country}>
           <CountryTable />
