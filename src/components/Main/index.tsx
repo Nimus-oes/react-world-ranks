@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CountryTable from "../CountryTable";
 import FoundResults from "../FoundResults";
 import RegionFilters from "../RegionFilters";
@@ -6,6 +6,7 @@ import SearchBar from "../SearchBar";
 import SortDropdown from "../SortDropdown";
 import StatusFilters from "../StatusFilters";
 import styles from "./Main.module.css";
+import { filterCountries } from "./mainHelpers";
 
 type SortByType = "Name" | "Population" | "Area" | "Region";
 type StatusType = "Member of the United Nations" | "Independent";
@@ -28,9 +29,23 @@ export interface SetFilterProp {
   setFilters: React.Dispatch<React.SetStateAction<FilterType>>;
 }
 
-export interface FilterProp {
+export interface FilterProp extends SetFilterProp {
   filters: FilterType;
-  setFilters: React.Dispatch<React.SetStateAction<FilterType>>;
+}
+
+export interface CountryType {
+  name: {
+    common: string;
+  };
+  population: number;
+  flags: {
+    svg: string;
+    alt: string;
+  };
+  area: number;
+  region: string;
+  unMember: boolean;
+  independent: boolean;
 }
 
 export default function Main() {
@@ -51,6 +66,18 @@ export default function Main() {
     searchKey: "",
   });
 
+  const [countries, setCountries] = useState<CountryType[]>([]);
+
+  useEffect(() => {
+    fetch(
+      "https://restcountries.com/v3.1/all?fields=name,population,flags,area,region,unMember,independent",
+    )
+      .then((response) => response.json())
+      .then((data) => setCountries(data));
+  }, []);
+
+  const filteredCountries = filterCountries(countries, filters);
+
   return (
     <main className={styles.main}>
       <div className={styles.searchResults}>
@@ -64,7 +91,7 @@ export default function Main() {
           <StatusFilters filters={filters} setFilters={setFilters} />
         </div>
         <div className={styles.country}>
-          <CountryTable />
+          <CountryTable filteredCountries={filteredCountries} />
         </div>
       </div>
     </main>
