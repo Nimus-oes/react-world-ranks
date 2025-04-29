@@ -7,6 +7,7 @@ import SortDropdown from "../SortDropdown";
 import StatusFilters from "../StatusFilters";
 import styles from "./Main.module.css";
 import { filterCountries } from "./mainHelpers";
+import { useQuery } from "@tanstack/react-query";
 
 type SortByType = "Name" | "Population" | "Area" | "Region";
 type StatusType = "Member of the United Nations" | "Independent";
@@ -66,17 +67,37 @@ export default function Main() {
     searchKey: "",
   });
 
-  const [countries, setCountries] = useState<CountryType[]>([]);
+  //   const [countries, setCountries] = useState<CountryType[]>([]);
 
-  useEffect(() => {
-    fetch(
+  async function fetchCountries() {
+    const response = await fetch(
       "https://restcountries.com/v3.1/all?fields=name,population,flags,area,region,unMember,independent",
-    )
-      .then((response) => response.json())
-      .then((data) => setCountries(data));
-  }, []);
+    );
 
-  const filteredCountries = filterCountries(countries, filters);
+    if (!response.ok) {
+      throw new Error("Failed to fetch countries data.");
+    }
+
+    return response.json();
+  }
+
+  //   useEffect(() => {
+  //     fetch(
+  //       "https://restcountries.com/v3.1/all?fields=name,population,flags,area,region,unMember,independent",
+  //     )
+  //       .then((response) => response.json())
+  //       .then((data) => setCountries(data));
+  //   }, []);
+
+  const { data } = useQuery<CountryType[]>({
+    queryKey: ["countries"],
+    queryFn: fetchCountries,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+    staleTime: Infinity,
+  });
+
+  const filteredCountries = filterCountries(data ?? [], filters);
 
   return (
     <main className={styles.main}>
