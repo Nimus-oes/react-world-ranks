@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CountryTable from "../CountryTable";
 import FoundResults from "../FoundResults";
 import RegionFilters from "../RegionFilters";
@@ -67,8 +67,6 @@ export default function Main() {
     searchKey: "",
   });
 
-  //   const [countries, setCountries] = useState<CountryType[]>([]);
-
   async function fetchCountries() {
     const response = await fetch(
       "https://restcountries.com/v3.1/all?fields=name,population,flags,area,region,unMember,independent",
@@ -80,14 +78,6 @@ export default function Main() {
 
     return response.json();
   }
-
-  //   useEffect(() => {
-  //     fetch(
-  //       "https://restcountries.com/v3.1/all?fields=name,population,flags,area,region,unMember,independent",
-  //     )
-  //       .then((response) => response.json())
-  //       .then((data) => setCountries(data));
-  //   }, []);
 
   const { data } = useQuery<CountryType[]>({
     queryKey: ["countries"],
@@ -107,7 +97,7 @@ export default function Main() {
       </div>
       <div className={styles.countryWrapper}>
         <div className={styles.filters}>
-          <SortDropdown setFilters={setFilters} />
+          <SortDropdown filters={filters} setFilters={setFilters} />
           <RegionFilters setFilters={setFilters} />
           <StatusFilters filters={filters} setFilters={setFilters} />
         </div>

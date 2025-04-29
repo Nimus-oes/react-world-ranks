@@ -1,10 +1,11 @@
-import type { FilterType, SetFilterProp } from "../Main";
+import type { FilterType, FilterProp } from "../Main";
 
-export default function SortDropdown({ setFilters }: SetFilterProp) {
+export default function SortDropdown({ filters, setFilters }: FilterProp) {
   return (
     <select
       name=""
       id=""
+      value={filters.sortBy}
       onChange={(e) =>
         setFilters((prevFilters) => ({
           ...prevFilters,

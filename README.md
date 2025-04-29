@@ -23,7 +23,8 @@ react-world-ranks
 │  │  │  └─ index.tsx
 │  │  ├─ Main
 │  │  │  ├─ Main.module.css
-│  │  │  └─ index.tsx
+│  │  │  ├─ index.tsx
+│  │  │  └─ mainHelpers.ts
 │  │  ├─ RegionFilters
 │  │  │  ├─ RegionFilters.module.css
 │  │  │  └─ index.tsx
