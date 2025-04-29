@@ -49,6 +49,10 @@ export interface CountryType {
   independent: boolean;
 }
 
+export interface FilteredCountriesProp {
+  filteredCountries: CountryType[];
+}
+
 export default function Main() {
   const [filters, setFilters] = useState<FilterType>({
     sortBy: "Population",
@@ -92,7 +96,7 @@ export default function Main() {
   return (
     <main className={styles.main}>
       <div className={styles.searchResults}>
-        <FoundResults />
+        <FoundResults filteredCountries={filteredCountries} />
         <SearchBar filters={filters} setFilters={setFilters} />
       </div>
       <div className={styles.countryWrapper}>

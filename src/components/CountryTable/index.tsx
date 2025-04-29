@@ -1,8 +1,4 @@
-import type { CountryType } from "../Main";
-
-interface FilteredCountriesProp {
-  filteredCountries: CountryType[];
-}
+import type { CountryType, FilteredCountriesProp } from "../Main";
 
 export default function CountryTable({
   filteredCountries,

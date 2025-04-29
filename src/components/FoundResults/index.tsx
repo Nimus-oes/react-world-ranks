@@ -1,3 +1,8 @@
-export default function FoundResults() {
-  return <div>Found Results</div>;
+import { FilteredCountriesProp } from "../Main";
+
+export default function FoundResults({
+  filteredCountries,
+}: FilteredCountriesProp) {
+  const numsOfCountries = filteredCountries.length;
+  return <div>Found {numsOfCountries} Results</div>;
 }
