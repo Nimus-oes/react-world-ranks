@@ -1,0 +1,4 @@
+.statusWrapper {
+  display: flex;
+  flex-direction: column;
+}

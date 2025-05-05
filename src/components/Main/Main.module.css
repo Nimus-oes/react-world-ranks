@@ -1,0 +1,32 @@
+.main {
+  width: 94%;
+  margin: 0 auto;
+}
+
+.main,
+.upperRow,
+.bottomRow {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 1024px) {
+  .upperRow {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .bottomRow {
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  .filterOptions {
+    flex-basis: 261px;
+  }
+
+  .countryTable {
+    flex-basis: 601px;
+    flex-grow: 1;
+  }
+}
