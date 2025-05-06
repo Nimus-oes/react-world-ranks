@@ -1,5 +1,5 @@
 {
-  "table_headers": {
+  "country_table_headers": {
     "flag": "Flag",
     "name": "Name",
     "population": "Population",
@@ -9,7 +9,8 @@
   "found_results_message_zero": "No countries found",
   "found_results_message_one": "Found {{count}} country",
   "found_results_message_other": "Found {{count}} countries",
-  "region": {
+  "region_filter_title": "Region",
+  "region_filter_options": {
     "americas": "Americas",
     "antarctic": "Antarctic",
     "africa": "Africa",
@@ -17,10 +18,16 @@
     "europe": "Europe",
     "oceania": "Oceania"
   },
-  "sort_categories": {
+  "sorter_title": "Sort by",
+  "sorter_options": {
     "population": "Population",
     "name": "Name",
     "area": "Area",
     "region": "Region"
+  },
+  "status_title": "Status",
+  "status_options": {
+    "unMember": "Member of the United Nations",
+    "independent": "Independent"
   }
 }

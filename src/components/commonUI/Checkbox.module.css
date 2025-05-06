@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+/* Hide the native checkbox */
+.nativeCheckbox {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.customCheckbox {
+  width: 18px;
+  height: 18px;
+  border: 1px solid darkgray;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nativeCheckbox:disabled + .customCheckbox {
+  background-color: lightgrey;
+}
+
+.nativeCheckbox:checked + .customCheckbox {
+  background-color: royalblue;
+  border: 1px solid royalblue;
+}
+
+/* React to keyboard focus only */
+.nativeCheckbox:focus-visible + .customCheckbox {
+  outline: 2px solid royalblue;
+  outline-offset: 1.5px;
+}
