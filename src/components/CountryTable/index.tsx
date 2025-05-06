@@ -1,7 +1,12 @@
 import { useTranslation } from "react-i18next";
 import { COUNTRY_TABLE_HEADERS } from "./constants";
+import { Country } from "../../types/models";
 
-export default function CountryTable() {
+interface CountryProp {
+  countries: Country[];
+}
+
+export default function CountryTable({ countries }: CountryProp) {
   const { t } = useTranslation();
   return (
     <div>
@@ -13,7 +18,15 @@ export default function CountryTable() {
             ))}
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          {countries.map((country) => (
+            <tr>
+              {COUNTRY_TABLE_HEADERS.map((header) => (
+                <td>{header.getProperty(country)}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );
