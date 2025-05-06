@@ -5,4 +5,4 @@ export const REGIONS = [
   "asia",
   "europe",
   "oceania",
-];
+] as const;

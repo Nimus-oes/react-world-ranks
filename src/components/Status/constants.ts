@@ -1,1 +1,1 @@
-export const STATUS_OPTIONS = ["unMember", "independent"];
+export const STATUS_OPTIONS = ["unMember", "independent"] as const;
