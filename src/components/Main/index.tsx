@@ -12,6 +12,7 @@ import {
   createInitialFilters,
   filterByRegion,
   filterByStatus,
+  searchCountries,
   sortCountries,
 } from "./helpers";
 
@@ -38,12 +39,16 @@ export default function Main() {
   const sortedCountries = sortCountries(data ?? [], filters);
   const filteredCountries = filterByRegion(sortedCountries, filters);
   const secondFilteredCountries = filterByStatus(filteredCountries, filters);
+  const thirdFilteredCountries = searchCountries(
+    secondFilteredCountries,
+    filters,
+  );
 
   return (
     <main className={styles.main}>
       <div className={styles.upperRow}>
         <FoundResults />
-        <SearchBar />
+        <SearchBar filters={filters} setFilters={setFilters} />
       </div>
       <div className={styles.bottomRow}>
         <div className={styles.filterOptions}>
@@ -52,7 +57,7 @@ export default function Main() {
           <Status filters={filters} setFilters={setFilters} />
         </div>
         <div className={styles.countryTable}>
-          <CountryTable countries={secondFilteredCountries} />
+          <CountryTable countries={thirdFilteredCountries} />
         </div>
       </div>
     </main>

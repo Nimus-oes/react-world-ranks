@@ -67,3 +67,20 @@ export function filterByStatus(
     return countries;
   }
 }
+
+export function searchCountries(
+  countries: Country[],
+  filters: Filter,
+): Country[] {
+  const keyword = filters.searchKey.trim().toLowerCase();
+
+  if (keyword) {
+    return countries.filter(
+      (country) =>
+        country.name.common.trim().toLowerCase().includes(keyword) ||
+        country.region.trim().toLowerCase().includes(keyword),
+    );
+  } else {
+    return countries;
+  }
+}
