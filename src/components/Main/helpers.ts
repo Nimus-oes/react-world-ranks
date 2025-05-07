@@ -20,7 +20,7 @@ export function sortCountries(
   countries: Country[],
   filters: Filter,
 ): Country[] {
-  return [...countries].sort((a, b) => {
+  return countries.sort((a, b) => {
     switch (filters.sorter) {
       case "population":
         return b.population - a.population;
@@ -46,7 +46,7 @@ export function filterByRegion(
 ): Country[] {
   const selectedRegions = getTrueItems(Object.entries(filters.region));
   if (selectedRegions.length) {
-    return [...countries].filter((country) =>
+    return countries.filter((country) =>
       selectedRegions.includes(country.region),
     );
   } else {
@@ -83,4 +83,16 @@ export function searchCountries(
   } else {
     return countries;
   }
+}
+
+export function sortFilterCountries(
+  countries: Country[],
+  filters: Filter,
+): Country[] {
+  let result = [...countries];
+  result = filterByRegion(result, filters);
+  result = filterByStatus(result, filters);
+  result = searchCountries(result, filters);
+  result = sortCountries(result, filters);
+  return result;
 }

@@ -8,13 +8,7 @@ import styles from "./Main.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { Country, Filter } from "../../types/models";
 import { useState } from "react";
-import {
-  createInitialFilters,
-  filterByRegion,
-  filterByStatus,
-  searchCountries,
-  sortCountries,
-} from "./helpers";
+import { createInitialFilters, sortFilterCountries } from "./helpers";
 
 export default function Main() {
   async function fetchCountries() {
@@ -36,13 +30,7 @@ export default function Main() {
   });
 
   const [filters, setFilters] = useState<Filter>(createInitialFilters());
-  const sortedCountries = sortCountries(data ?? [], filters);
-  const filteredCountries = filterByRegion(sortedCountries, filters);
-  const secondFilteredCountries = filterByStatus(filteredCountries, filters);
-  const thirdFilteredCountries = searchCountries(
-    secondFilteredCountries,
-    filters,
-  );
+  const filteredCountries = sortFilterCountries(data ?? [], filters);
 
   return (
     <main className={styles.main}>
@@ -57,7 +45,7 @@ export default function Main() {
           <Status filters={filters} setFilters={setFilters} />
         </div>
         <div className={styles.countryTable}>
-          <CountryTable countries={thirdFilteredCountries} />
+          <CountryTable countries={filteredCountries} />
         </div>
       </div>
     </main>
