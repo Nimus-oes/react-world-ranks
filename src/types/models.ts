@@ -21,6 +21,10 @@ export interface Country {
   };
 }
 
+export interface CountryProp {
+  countries: Country[];
+}
+
 export interface Filter {
   region: Record<RegionType, boolean>;
   sorter: SorterType;
