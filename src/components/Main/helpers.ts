@@ -35,3 +35,19 @@ export function sortCountries(
     }
   });
 }
+
+function getTrueItems(array: [string, boolean][]): string[] {
+  return array.filter(([, value]) => value === true).map(([key]) => key);
+}
+
+export function filterByRegion(
+  countries: Country[],
+  filters: Filter,
+): Country[] {
+  const regions = getTrueItems(Object.entries(filters.region));
+  if (regions.length) {
+    return [...countries].filter((country) => regions.includes(country.region));
+  } else {
+    return countries;
+  }
+}

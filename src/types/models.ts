@@ -28,7 +28,10 @@ export interface Filter {
   searchKey: string;
 }
 
-export interface FilterProp {
-  filters: Filter;
+export interface SetFilterProp {
   setFilters: React.Dispatch<React.SetStateAction<Filter>>;
+}
+
+export interface FilterProp extends SetFilterProp {
+  filters: Filter;
 }

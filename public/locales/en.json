@@ -11,12 +11,12 @@
   "found_results_message_other": "Found {{count}} countries",
   "region_filter_title": "Region",
   "region_filter_options": {
-    "americas": "Americas",
-    "antarctic": "Antarctic",
-    "africa": "Africa",
-    "asia": "Asia",
-    "europe": "Europe",
-    "oceania": "Oceania"
+    "Americas": "Americas",
+    "Antarctic": "Antarctic",
+    "Africa": "Africa",
+    "Asia": "Asia",
+    "Europe": "Europe",
+    "Oceania": "Oceania"
   },
   "sorter_title": "Sort by",
   "sorter_options": {

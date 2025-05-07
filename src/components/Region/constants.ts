@@ -1,8 +1,10 @@
 export const REGIONS = [
-  "americas",
-  "antarctic",
-  "africa",
-  "asia",
-  "europe",
-  "oceania",
+  "Americas",
+  "Antarctic",
+  "Africa",
+  "Asia",
+  "Europe",
+  "Oceania",
 ] as const;
+
+// The values, including cases must match the Region values of the REST Countries API
