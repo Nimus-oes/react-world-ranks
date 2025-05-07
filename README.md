@@ -7,6 +7,8 @@ react-world-ranks
 ├─ package-lock.json
 ├─ package.json
 ├─ public
+│  └─ locales
+│     └─ en.json
 ├─ src
 │  ├─ App.css
 │  ├─ App.tsx
@@ -14,6 +16,7 @@ react-world-ranks
 │  ├─ components
 │  │  ├─ CountryTable
 │  │  │  ├─ CountryTable.module.css
+│  │  │  ├─ constants.tsx
 │  │  │  └─ index.tsx
 │  │  ├─ FoundResults
 │  │  │  ├─ FoundResults.module.css
@@ -23,26 +26,33 @@ react-world-ranks
 │  │  │  └─ index.tsx
 │  │  ├─ Main
 │  │  │  ├─ Main.module.css
-│  │  │  ├─ index.tsx
-│  │  │  └─ mainHelpers.ts
-│  │  ├─ RegionFilters
-│  │  │  ├─ RegionFilters.module.css
+│  │  │  ├─ helpers.ts
+│  │  │  └─ index.tsx
+│  │  ├─ Region
+│  │  │  ├─ Region.module.css
+│  │  │  ├─ constants.ts
 │  │  │  └─ index.tsx
 │  │  ├─ SearchBar
 │  │  │  ├─ SearchBar.module.css
 │  │  │  └─ index.tsx
-│  │  ├─ SortDropdown
-│  │  │  ├─ SortDropdown.module.css
+│  │  ├─ SortBy
+│  │  │  ├─ SortBy.module.css
+│  │  │  ├─ constants.ts
 │  │  │  └─ index.tsx
-│  │  └─ StatusFilters
+│  │  ├─ Status
+│  │  │  ├─ Status.module.css
+│  │  │  ├─ constants.ts
+│  │  │  └─ index.tsx
+│  │  └─ commonUI
 │  │     ├─ Checkbox.module.css
 │  │     ├─ Checkbox.tsx
-│  │     ├─ StatusFilters.module.css
-│  │     └─ index.tsx
+│  │     ├─ Dropdown.module.css
+│  │     └─ Dropdown.tsx
+│  ├─ i18n.ts
 │  ├─ index.css
 │  ├─ index.tsx
-│  ├─ locale
-│  │  └─ en.json
+│  ├─ types
+│  │  └─ models.ts
 │  └─ vite-env.d.ts
 ├─ tsconfig.app.json
 ├─ tsconfig.json

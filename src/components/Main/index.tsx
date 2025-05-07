@@ -41,7 +41,7 @@ export default function Main() {
       <div className={styles.bottomRow}>
         <div className={styles.filterOptions}>
           <SortBy filters={filters} setFilters={setFilters} />
-          <Region setFilters={setFilters} />
+          <Region filters={filters} setFilters={setFilters} />
           <Status filters={filters} setFilters={setFilters} />
         </div>
         <div className={styles.countryTable}>

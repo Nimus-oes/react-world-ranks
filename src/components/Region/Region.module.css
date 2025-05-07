@@ -1,0 +1,13 @@
+.regionTag {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.regionTag:hover {
+  background-color: lightgray;
+}
+
+.tagSelected {
+  background-color: darkgray;
+}
