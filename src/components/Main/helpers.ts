@@ -44,9 +44,25 @@ export function filterByRegion(
   countries: Country[],
   filters: Filter,
 ): Country[] {
-  const regions = getTrueItems(Object.entries(filters.region));
-  if (regions.length) {
-    return [...countries].filter((country) => regions.includes(country.region));
+  const selectedRegions = getTrueItems(Object.entries(filters.region));
+  if (selectedRegions.length) {
+    return [...countries].filter((country) =>
+      selectedRegions.includes(country.region),
+    );
+  } else {
+    return countries;
+  }
+}
+
+export function filterByStatus(
+  countries: Country[],
+  filters: Filter,
+): Country[] {
+  const selectedStatus = getTrueItems(Object.entries(filters.status));
+  if (selectedStatus.length) {
+    return countries.filter((country) =>
+      selectedStatus.some((key) => country[key as keyof Country]),
+    );
   } else {
     return countries;
   }
