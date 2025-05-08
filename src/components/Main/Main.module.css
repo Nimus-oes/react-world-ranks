@@ -5,7 +5,7 @@
   gap: 36px;
   border: 1px solid black;
   border-radius: 12px;
-  margin-top: -50px;
+  margin-top: -130px;
   position: relative;
   z-index: 1;
   background-color: gray;
@@ -29,6 +29,11 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .main {
+    margin-top: -80px;
+    padding: 24px 24px;
+  }
+
   .upperRow {
     flex-direction: row;
     justify-content: space-between;
