@@ -2,13 +2,13 @@
   width: 94%;
   margin: 0 auto;
   padding: 24px 12px;
-  gap: 36px;
-  border: 1px solid black;
-  border-radius: 12px;
   margin-top: -130px;
   position: relative;
   z-index: 1;
-  background-color: gray;
+  gap: 36px;
+  border: 1px solid var(--stroke);
+  border-radius: 12px;
+  background-color: var(--dark-bg);
 }
 
 .main,

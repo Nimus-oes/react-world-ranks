@@ -1,3 +1,10 @@
+:root {
+  --dark-bg: rgb(27 29 31);
+  --light-bg: rgb(40 43 48);
+  --stroke: rgb(52, 56, 62);
+  --light-text: rgb(210 213 218);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,4 +12,6 @@
 
 body {
   width: 100vw;
+  background-color: var(--dark-bg);
+  color: var(--light-text);
 }

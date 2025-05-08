@@ -16,12 +16,13 @@
   padding: 12px 12px;
   font-size: 14px;
   border-radius: 12px;
+  color: var(--light-text);
 }
 
 .regionTag:hover {
-  background-color: lightgray;
+  background-color: var(--light-bg);
 }
 
 .tagSelected {
-  background-color: darkgray;
+  background-color: var(--light-bg);
 }
