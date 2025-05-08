@@ -1,16 +1,27 @@
 .header {
   width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background-image: url("src/assets/hero-sm.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-picture img {
+.logo {
   display: block;
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
+  width: 174px;
+  height: 24px;
+  margin: 70px auto;
 }
 
 @media screen and (min-width: 1024px) {
-  picture img {
+  .header {
+    background-image: url("src/assets/hero-lg.png");
     height: 400px;
+  }
+
+  .logo {
+    margin: 160px auto;
   }
 }

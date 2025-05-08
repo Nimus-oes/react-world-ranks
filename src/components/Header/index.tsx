@@ -1,14 +1,12 @@
 import styles from "./Header.module.css";
-import smLogo from "../../assets/hero-sm.png";
-import lgLogo from "../../assets/hero-lg.png";
+import smHero from "../../assets/hero-sm.png";
+import lgHero from "../../assets/hero-lg.png";
+import logo from "../../assets/Logo.svg";
 
 export default function Header() {
   return (
     <header className={styles.header}>
-      <picture>
-        <source media="(min-width: 1024px)" srcSet={lgLogo} />
-        <img src={smLogo} />
-      </picture>
+      <img src={logo} alt="" className={styles.logo} />
     </header>
   );
 }
