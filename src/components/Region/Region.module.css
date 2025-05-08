@@ -1,7 +1,21 @@
+.title {
+  margin-bottom: 12px;
+}
+
+.tagContainer {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: 80%;
+}
+
 .regionTag {
   border: none;
   background-color: transparent;
   cursor: pointer;
+  padding: 12px 12px;
+  font-size: 14px;
+  border-radius: 12px;
 }
 
 .regionTag:hover {

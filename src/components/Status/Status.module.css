@@ -1,4 +1,9 @@
+.title {
+  margin-bottom: 12px;
+}
+
 .statusWrapper {
   display: flex;
   flex-direction: column;
+  gap: 12px;
 }

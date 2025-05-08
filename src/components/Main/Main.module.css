@@ -1,13 +1,31 @@
 .main {
   width: 94%;
   margin: 0 auto;
+  padding: 24px 12px;
+  gap: 36px;
+  border: 1px solid black;
+  border-radius: 12px;
+  margin-top: -50px;
+  position: relative;
+  z-index: 1;
+  background-color: gray;
 }
 
 .main,
 .upperRow,
-.bottomRow {
+.bottomRow,
+.filterOptions {
   display: flex;
   flex-direction: column;
+}
+
+.bottomRow,
+.filterOptions {
+  gap: 32px;
+}
+
+.upperRow {
+  gap: 24px;
 }
 
 @media screen and (min-width: 1024px) {
@@ -18,7 +36,6 @@
 
   .bottomRow {
     flex-direction: row;
-    gap: 32px;
   }
 
   .filterOptions {

@@ -1,0 +1,27 @@
+.flagHeader {
+  width: 80px;
+}
+
+.headers {
+  width: 200px;
+}
+
+.flagHeader,
+.headers {
+  text-align: left;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+th {
+  height: 50px;
+  border-bottom: 1px solid black;
+}
+
+td {
+  height: 64px;
+}

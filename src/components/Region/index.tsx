@@ -17,23 +17,25 @@ export default function Region({ filters, setFilters }: FilterProp) {
   };
   return (
     <div>
-      <h3>{t("region_filter_title")}</h3>
-      {REGIONS.map((regionValue) => {
-        const tagSelected = filters.region[regionValue]
-          ? styles.tagSelected
-          : "";
-        return (
-          <button
-            type="button"
-            value={regionValue}
-            onClick={handleChange}
-            className={`${styles.regionTag} ${tagSelected}`}
-            key={regionValue}
-          >
-            {t(`region_filter_options.${regionValue}`)}
-          </button>
-        );
-      })}
+      <h3 className={styles.title}>{t("region_filter_title")}</h3>
+      <div className={styles.tagContainer}>
+        {REGIONS.map((regionValue) => {
+          const tagSelected = filters.region[regionValue]
+            ? styles.tagSelected
+            : "";
+          return (
+            <button
+              type="button"
+              value={regionValue}
+              onClick={handleChange}
+              className={`${styles.regionTag} ${tagSelected}`}
+              key={regionValue}
+            >
+              {t(`region_filter_options.${regionValue}`)}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }

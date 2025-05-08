@@ -19,7 +19,7 @@ export default function Status({ filters, setFilters }: FilterProp) {
 
   return (
     <div>
-      <h3>{t("status_title")}</h3>
+      <h3 className={styles.title}>{t("status_title")}</h3>
       <div className={styles.statusWrapper}>
         {STATUS_OPTIONS.map((value) => (
           <Checkbox
