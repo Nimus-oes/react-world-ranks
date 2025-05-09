@@ -16,6 +16,7 @@ export default function SearchBar({ filters, setFilters }: FilterProp) {
         value={filters.searchKey}
         onChange={handleChange}
         className={styles.searchField}
+        placeholder="Search by name or region..."
       />
     </div>
   );
