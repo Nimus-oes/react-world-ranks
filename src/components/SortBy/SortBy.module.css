@@ -9,4 +9,7 @@
   background-color: var(--dark-bg);
   border: 1px solid var(--stroke);
   color: var(--light-text);
+  padding: 10px;
+  outline: none;
+  cursor: pointer;
 }

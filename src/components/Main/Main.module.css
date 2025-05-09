@@ -31,12 +31,13 @@
 @media screen and (min-width: 1024px) {
   .main {
     margin-top: -80px;
-    padding: 24px 24px;
+    padding: 24px 32px;
   }
 
   .upperRow {
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
 
   .bottomRow {
