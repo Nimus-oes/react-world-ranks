@@ -6,7 +6,7 @@ import styles from "./CountryTable.module.css";
 export default function CountryTable({ countries }: CountryProp) {
   const { t } = useTranslation();
   return (
-    <div>
+    <div className={styles.tableWrapper}>
       <table>
         <thead>
           <tr>
