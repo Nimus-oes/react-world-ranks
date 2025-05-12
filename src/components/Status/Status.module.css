@@ -1,9 +1,15 @@
 .title {
   margin-bottom: 12px;
+  font-size: var(--fs-1);
 }
 
 .statusWrapper {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+.label {
+  font-size: var(--fs-2);
+  font-weight: var(--fw-1);
 }

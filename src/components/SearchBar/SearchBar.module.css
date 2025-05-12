@@ -10,6 +10,7 @@
   background-position: 3% 50%;
   color: var(--light-text);
   padding: 0 43px;
+  font-size: var(--fs-2);
 }
 
 @media screen and (min-width: 1024px) {

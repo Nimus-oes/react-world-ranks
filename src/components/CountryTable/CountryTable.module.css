@@ -24,8 +24,11 @@ table {
 th {
   height: 50px;
   border-bottom: 1px solid var(--stroke);
+  font-size: var(--fs-1);
+  font-weight: var(--fw-1);
 }
 
 td {
   height: 64px;
+  font-size: var(--fs-3);
 }

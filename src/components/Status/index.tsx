@@ -27,6 +27,7 @@ export default function Status({ filters, setFilters }: FilterProp) {
             labelText={t(`status_options.${value}`)}
             checked={filters.status[value]}
             onChange={handleChange}
+            textClass={styles.label}
           />
         ))}
       </div>

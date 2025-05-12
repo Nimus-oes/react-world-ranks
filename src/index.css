@@ -3,6 +3,12 @@
   --light-bg: rgb(40 43 48);
   --stroke: rgb(52, 56, 62);
   --light-text: rgb(210 213 218);
+  --font-primary: "DM Sans", sans-serif;
+  --fw-1: 400;
+  --fw-2: 600;
+  --fs-1: 12px;
+  --fs-2: 14px;
+  --fs-3: 16px;
 }
 
 * {
@@ -14,4 +20,10 @@ body {
   width: 100vw;
   background-color: var(--dark-bg);
   color: var(--light-text);
+  font-family: var(--font-primary);
+}
+
+input,
+button {
+  font-family: inherit;
 }
