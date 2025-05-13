@@ -1,6 +1,4 @@
-import { REGIONS } from "../Region/constants";
-import { SORT_CATEGORIES } from "../SortBy/constants";
-import { STATUS_OPTIONS } from "../Status/constants";
+import { REGIONS, SORT_CATEGORIES, STATUS_OPTIONS } from "../../constants";
 import type { Country, Filter } from "../../types/models";
 
 export function createInitialFilters(): Filter {
@@ -16,10 +14,7 @@ export function createInitialFilters(): Filter {
   };
 }
 
-export function sortCountries(
-  countries: Country[],
-  filters: Filter,
-): Country[] {
+function sortCountries(countries: Country[], filters: Filter): Country[] {
   return countries.sort((a, b) => {
     switch (filters.sorter) {
       case "population":
@@ -40,10 +35,7 @@ function getTrueItems(array: [string, boolean][]): string[] {
   return array.filter(([, value]) => value === true).map(([key]) => key);
 }
 
-export function filterByRegion(
-  countries: Country[],
-  filters: Filter,
-): Country[] {
+function filterByRegion(countries: Country[], filters: Filter): Country[] {
   const selectedRegions = getTrueItems(Object.entries(filters.region));
   if (selectedRegions.length) {
     return countries.filter((country) =>
@@ -54,10 +46,7 @@ export function filterByRegion(
   }
 }
 
-export function filterByStatus(
-  countries: Country[],
-  filters: Filter,
-): Country[] {
+function filterByStatus(countries: Country[], filters: Filter): Country[] {
   const selectedStatus = getTrueItems(Object.entries(filters.status));
   if (selectedStatus.length) {
     return countries.filter((country) =>
@@ -68,10 +57,7 @@ export function filterByStatus(
   }
 }
 
-export function searchCountries(
-  countries: Country[],
-  filters: Filter,
-): Country[] {
+function searchCountries(countries: Country[], filters: Filter): Country[] {
   const keyword = filters.searchKey.trim().toLowerCase();
 
   if (keyword) {

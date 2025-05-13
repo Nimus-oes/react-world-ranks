@@ -1,6 +1,6 @@
 import { Select } from "radix-ui";
 import { useTranslation } from "react-i18next";
-import { SORT_CATEGORIES } from "./constants";
+import { SORT_CATEGORIES } from "../../constants";
 import { FilterProp, SorterType } from "../../types/models";
 import styles from "./SortBy.module.css";
 

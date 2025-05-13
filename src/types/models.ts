@@ -1,7 +1,11 @@
-import { REGIONS } from "../components/Region/constants";
-import { SORT_CATEGORIES } from "../components/SortBy/constants";
-import { STATUS_OPTIONS } from "../components/Status/constants";
+import {
+  REGIONS,
+  SORT_CATEGORIES,
+  STATUS_OPTIONS,
+  COUNTRY_TABLE_HEADERS,
+} from "../constants";
 
+export type HeaderType = (typeof COUNTRY_TABLE_HEADERS)[number];
 export type RegionType = (typeof REGIONS)[number];
 export type SorterType = (typeof SORT_CATEGORIES)[number];
 export type StatusType = (typeof STATUS_OPTIONS)[number];

@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { REGIONS } from "./constants";
+import { REGIONS } from "../../constants";
 import { FilterProp, RegionType } from "../../types/models";
 import styles from "./Region.module.css";
 

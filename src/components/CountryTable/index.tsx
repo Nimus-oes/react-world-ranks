@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { COUNTRY_TABLE_HEADERS } from "./constants";
-import type { CountryFetchProp } from "../../types/models";
+import { COUNTRY_TABLE_HEADERS } from "../../constants";
+import type { Country, CountryFetchProp, HeaderType } from "../../types/models";
 import styles from "./CountryTable.module.css";
 
 export default function CountryTable({
@@ -10,10 +10,29 @@ export default function CountryTable({
 }: CountryFetchProp) {
   const { t } = useTranslation();
 
-  const messageCell = (key: string) => (
+  const getCellData = (country: Country, key: HeaderType) => {
+    switch (key) {
+      case "flag":
+        return (
+          <img src={country.flags.svg} alt={country.flags.alt} width="50px" />
+        );
+      case "area":
+        return country.area;
+      case "name":
+        return country.name.common;
+      case "population":
+        return country.population;
+      case "region":
+        return country.region;
+      default:
+        return null;
+    }
+  };
+
+  const messageCell = (i18nKey: string) => (
     <tr>
       <td colSpan={COUNTRY_TABLE_HEADERS.length} className={styles.message}>
-        {t(key)}
+        {t(i18nKey)}
       </td>
     </tr>
   );
@@ -21,7 +40,7 @@ export default function CountryTable({
   const countryCell = countries.map((country) => (
     <tr key={country.cca2}>
       {COUNTRY_TABLE_HEADERS.map((header) => (
-        <td key={header.value}>{header.getProperty(country)}</td>
+        <td key={header}>{getCellData(country, header)}</td>
       ))}
     </tr>
   ));
@@ -33,10 +52,10 @@ export default function CountryTable({
           <tr>
             {COUNTRY_TABLE_HEADERS.map((header) => {
               const headerClass =
-                header.value === "flag" ? styles.flagHeader : styles.headers;
+                header === "flag" ? styles.flagHeader : styles.headers;
               return (
-                <th className={headerClass} key={header.value}>
-                  {t(`country_table_headers.${header.value}`)}
+                <th className={headerClass} key={header}>
+                  {t(`country_table_headers.${header}`)}
                 </th>
               );
             })}

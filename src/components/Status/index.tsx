@@ -1,7 +1,7 @@
 import { Checkbox } from "radix-ui";
 import { CheckIcon } from "@radix-ui/react-icons";
 import { useTranslation } from "react-i18next";
-import { STATUS_OPTIONS } from "./constants";
+import { STATUS_OPTIONS } from "../../constants";
 import { FilterProp, StatusType } from "../../types/models";
 import styles from "./Status.module.css";
 
