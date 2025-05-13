@@ -6,9 +6,9 @@ import SortBy from "../SortBy";
 import Region from "../Region";
 import Status from "../Status";
 import CountryTable from "../CountryTable";
+import type { Country, Filter } from "../../types/models";
 import styles from "./Main.module.css";
 import { createInitialFilters, sortFilterCountries } from "./helpers";
-import { Country, Filter } from "../../types/models";
 
 export default function Main() {
   async function fetchCountries() {

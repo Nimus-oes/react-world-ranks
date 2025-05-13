@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { CountryProp } from "../../types/models";
+import type { CountryProp } from "../../types/models";
 import styles from "./FoundResults.module.css";
 
 export default function FoundResults({ countries }: CountryProp) {
