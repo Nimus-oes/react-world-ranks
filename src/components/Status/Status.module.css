@@ -14,9 +14,10 @@
   font-weight: var(--fw-1);
 }
 
-.checkbox {
+.checkboxSquare {
   width: 22px;
   height: 22px;
+  cursor: pointer;
 }
 
 .checkboxItem {
@@ -29,7 +30,7 @@
   width: 20px;
 }
 
-.checkbox,
+.checkboxSquare,
 .checkmarkWrapper {
   display: flex;
   justify-content: center;

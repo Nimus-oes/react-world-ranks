@@ -25,7 +25,7 @@ export default function Status({ filters, setFilters }: FilterProp) {
           <div className={styles.checkboxItem}>
             <Checkbox.Root
               id={value}
-              className={styles.checkbox}
+              className={styles.checkboxSquare}
               checked={filters.status[value]}
               onCheckedChange={() => handleChange(value)}
             >
