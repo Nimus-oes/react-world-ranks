@@ -1,0 +1,33 @@
+{
+  "country_table_headers": {
+    "flag": "국기",
+    "name": "명칭",
+    "population": "인구",
+    "area": "면적",
+    "region": "지역"
+  },
+  "found_results_message_zero": "검색 결과 없음",
+  "found_results_message_one": "검색 결과: {{count}}개국",
+  "found_results_message_other": "검색 결과: {{count}}개국",
+  "region_filter_title": "지역",
+  "region_filter_options": {
+    "Americas": "아메리카",
+    "Antarctic": "남극",
+    "Africa": "아프리카",
+    "Asia": "아시아",
+    "Europe": "유럽",
+    "Oceania": "오세아니아"
+  },
+  "sorter_title": "정렬",
+  "sorter_options": {
+    "population": "인구",
+    "name": "명칭",
+    "area": "면적",
+    "region": "지역"
+  },
+  "status_title": "상태",
+  "status_options": {
+    "unMember": "UN 회원국",
+    "independent": "독립국"
+  }
+}

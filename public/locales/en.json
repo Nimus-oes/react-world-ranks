@@ -29,5 +29,6 @@
   "status_options": {
     "unMember": "Member of the United Nations",
     "independent": "Independent"
-  }
+  },
+  "no_match_fallback_message": "No countries found for this search."
 }

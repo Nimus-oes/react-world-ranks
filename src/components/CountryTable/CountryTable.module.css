@@ -32,3 +32,15 @@ td {
   height: 64px;
   font-size: var(--fs-3);
 }
+
+.fallback {
+  height: 120px;
+  padding-left: 80px;
+}
+
+@media screen and (min-width: 1024px) {
+  .fallback {
+    height: 200px;
+    text-align: center;
+  }
+}

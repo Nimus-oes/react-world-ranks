@@ -5,6 +5,22 @@ import styles from "./CountryTable.module.css";
 
 export default function CountryTable({ countries }: CountryProp) {
   const { t } = useTranslation();
+  const noMatchMessage = (
+    <tr>
+      <td colSpan={4} className={styles.fallback}>
+        {t("no_match_fallback_message")}
+      </td>
+    </tr>
+  );
+
+  const tableCell = countries.map((country) => (
+    <tr key={country.cca2}>
+      {COUNTRY_TABLE_HEADERS.map((header) => (
+        <td key={header.value}>{header.getProperty(country)}</td>
+      ))}
+    </tr>
+  ));
+
   return (
     <div className={styles.tableWrapper}>
       <table>
@@ -21,15 +37,7 @@ export default function CountryTable({ countries }: CountryProp) {
             })}
           </tr>
         </thead>
-        <tbody>
-          {countries.map((country) => (
-            <tr key={country.cca2}>
-              {COUNTRY_TABLE_HEADERS.map((header) => (
-                <td key={header.value}>{header.getProperty(country)}</td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
+        <tbody>{countries.length ? tableCell : noMatchMessage}</tbody>
       </table>
     </div>
   );
