@@ -6,10 +6,10 @@ import { Select } from "radix-ui";
 
 export default function SortBy({ filters, setFilters }: FilterProp) {
   const { t } = useTranslation();
-  const handleChange = (value: string) => {
+  const handleChange = (value: SorterType) => {
     setFilters((prevFilters) => ({
       ...prevFilters,
-      sorter: value as SorterType,
+      sorter: value,
     }));
   };
 

@@ -13,3 +13,25 @@
   font-size: var(--fs-2);
   font-weight: var(--fw-1);
 }
+
+.checkbox {
+  width: 22px;
+  height: 22px;
+}
+
+.checkboxItem {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.checkmark {
+  width: 20px;
+}
+
+.checkbox,
+.checkmarkWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
