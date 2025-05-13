@@ -30,5 +30,7 @@
     "unMember": "Member of the United Nations",
     "independent": "Independent"
   },
-  "no_match_fallback_message": "No countries found for this search."
+  "no_match_fallback_message": "No countries found for this search.",
+  "fetch_loading_message": "Loading...",
+  "fetch_error_message": "Country data isn't available at the moment. Pease try again later."
 }

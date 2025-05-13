@@ -21,7 +21,7 @@ export default function Main() {
     return response.json();
   }
 
-  const { data } = useQuery<Country[]>({
+  const { data, isPending, isError } = useQuery<Country[]>({
     queryKey: ["countries"],
     queryFn: fetchCountries,
     refetchOnWindowFocus: false,
@@ -45,7 +45,11 @@ export default function Main() {
           <Status filters={filters} setFilters={setFilters} />
         </div>
         <div className={styles.countryTable}>
-          <CountryTable countries={filteredCountries} />
+          <CountryTable
+            countries={filteredCountries}
+            isPending={isPending}
+            isError={isError}
+          />
         </div>
       </div>
     </main>

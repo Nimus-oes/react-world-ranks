@@ -26,6 +26,12 @@ export interface CountryProp {
   countries: Country[];
 }
 
+export interface CountryFetchProp {
+  countries: Country[];
+  isPending: boolean;
+  isError: boolean;
+}
+
 export interface Filter {
   region: Record<RegionType, boolean>;
   sorter: SorterType;

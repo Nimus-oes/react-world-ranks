@@ -33,14 +33,15 @@ td {
   font-size: var(--fs-3);
 }
 
-.fallback {
+.message {
   height: 120px;
-  padding-left: 80px;
+  padding-left: 20px;
 }
 
 @media screen and (min-width: 1024px) {
-  .fallback {
+  .message {
     height: 200px;
+    padding: 0;
     text-align: center;
   }
 }
