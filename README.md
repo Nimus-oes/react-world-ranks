@@ -13,6 +13,10 @@ react-world-ranks
 │  ├─ App.css
 │  ├─ App.tsx
 │  ├─ assets
+│  │  ├─ Logo.svg
+│  │  ├─ Search.svg
+│  │  ├─ hero-lg.png
+│  │  └─ hero-sm.png
 │  ├─ components
 │  │  ├─ CountryTable
 │  │  │  ├─ CountryTable.module.css
@@ -39,15 +43,10 @@ react-world-ranks
 │  │  │  ├─ SortBy.module.css
 │  │  │  ├─ constants.ts
 │  │  │  └─ index.tsx
-│  │  ├─ Status
-│  │  │  ├─ Status.module.css
-│  │  │  ├─ constants.ts
-│  │  │  └─ index.tsx
-│  │  └─ commonUI
-│  │     ├─ Checkbox.module.css
-│  │     ├─ Checkbox.tsx
-│  │     ├─ Dropdown.module.css
-│  │     └─ Dropdown.tsx
+│  │  └─ Status
+│  │     ├─ Status.module.css
+│  │     ├─ constants.ts
+│  │     └─ index.tsx
 │  ├─ i18n.ts
 │  ├─ index.css
 │  ├─ index.tsx
