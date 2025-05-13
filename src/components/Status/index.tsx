@@ -22,7 +22,7 @@ export default function Status({ filters, setFilters }: FilterProp) {
       <h3 className={styles.title}>{t("status_title")}</h3>
       <div className={styles.statusWrapper}>
         {STATUS_OPTIONS.map((value) => (
-          <div className={styles.checkboxItem}>
+          <div className={styles.checkboxItem} key={value}>
             <Checkbox.Root
               id={value}
               className={styles.checkboxSquare}

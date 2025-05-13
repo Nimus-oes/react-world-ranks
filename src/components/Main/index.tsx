@@ -13,7 +13,7 @@ import { Country, Filter } from "../../types/models";
 export default function Main() {
   async function fetchCountries() {
     const response = await fetch(
-      "https://restcountries.com/v3.1/all?fields=name,population,flags,area,region,unMember,independent",
+      "https://restcountries.com/v3.1/all?fields=name,population,flags,area,region,unMember,independent,cca2",
     );
     if (!response.ok) {
       throw new Error("Failed to fetch country data.");

@@ -10,6 +10,7 @@ export interface Country {
   name: {
     common: string;
   };
+  cca2: string;
   independent: boolean;
   unMember: boolean;
   region: string;

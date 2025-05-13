@@ -14,7 +14,7 @@ export default function CountryTable({ countries }: CountryProp) {
               const headerClass =
                 header.value === "flag" ? styles.flagHeader : styles.headers;
               return (
-                <th className={headerClass}>
+                <th className={headerClass} key={header.value}>
                   {t(`country_table_headers.${header.value}`)}
                 </th>
               );
@@ -23,9 +23,9 @@ export default function CountryTable({ countries }: CountryProp) {
         </thead>
         <tbody>
           {countries.map((country) => (
-            <tr>
+            <tr key={country.cca2}>
               {COUNTRY_TABLE_HEADERS.map((header) => (
-                <td>{header.getProperty(country)}</td>
+                <td key={header.value}>{header.getProperty(country)}</td>
               ))}
             </tr>
           ))}
