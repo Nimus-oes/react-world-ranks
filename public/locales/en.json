@@ -32,5 +32,6 @@
   },
   "no_match_fallback_message": "No countries found for this search.",
   "fetch_loading_message": "Loading...",
-  "fetch_error_message": "Country data isn't available at the moment. Pease try again later."
+  "fetch_error_message": "Country data isn't available at the moment. Pease try again later.",
+  "search_field_placeholder": "Search by name or region..."
 }

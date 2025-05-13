@@ -14,7 +14,7 @@ i18n
       escapeValue: false,
     },
     backend: {
-      loadPath: "/locales/en.json",
+      loadPath: "/locales/{{lng}}.json",
     },
     react: {
       useSuspense: true,
