@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3px;
+  gap: 5px;
   border-radius: 11px;
   border: 1px solid var(--stroke);
   box-shadow: none;
@@ -10,6 +10,7 @@
   cursor: pointer;
   background-color: var(--dark-bg);
   color: var(--light-text);
+  width: 100px;
 }
 
 .trigger:focus {

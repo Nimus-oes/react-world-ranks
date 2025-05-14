@@ -1,14 +1,21 @@
+import { useTranslation } from "react-i18next";
 import { Select } from "radix-ui";
 import { GlobeIcon } from "@radix-ui/react-icons";
 import { LANGUAGES } from "../../constants";
 import styles from "./LanguageSelector.module.css";
 
 export default function LanguageSelector() {
+  const { t, i18n } = useTranslation();
+  const hanleChange = (value: string) => {
+    i18n.changeLanguage(value);
+    localStorage.setItem("appLanguage", value);
+  };
+
   return (
-    <Select.Root>
+    <Select.Root onValueChange={hanleChange}>
       <Select.Trigger className={styles.trigger}>
         <GlobeIcon />
-        <Select.Value placeholder="Language" />
+        <Select.Value placeholder={t("language_selector")} />
       </Select.Trigger>
       <Select.Portal>
         <Select.Content
