@@ -12,14 +12,12 @@ export default function SearchBar({ filters, setFilters }: FilterProp) {
     }));
   };
   return (
-    <div>
-      <input
-        type="text"
-        value={filters.searchKey}
-        onChange={handleChange}
-        className={styles.searchField}
-        placeholder={t("search_field_placeholder")}
-      />
-    </div>
+    <input
+      type="text"
+      value={filters.searchKey}
+      onChange={handleChange}
+      className={styles.searchField}
+      placeholder={t("search_field_placeholder")}
+    />
   );
 }
