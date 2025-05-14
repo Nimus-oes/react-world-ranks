@@ -3,7 +3,7 @@
     "flag": "Flag",
     "name": "Name",
     "population": "Population",
-    "area": "Area",
+    "area": "Area (km²)",
     "region": "Region"
   },
   "found_results_message_zero": "No countries found",

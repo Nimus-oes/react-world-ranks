@@ -30,6 +30,10 @@ export default function CountryTable({
     }
   };
 
+  const formatNumber = (number: number) => {
+    return new Intl.NumberFormat(i18n.language).format(number);
+  };
+
   const getCellData = (country: Country, key: HeaderType) => {
     switch (key) {
       case "flag":
@@ -37,11 +41,11 @@ export default function CountryTable({
           <img src={country.flags.svg} alt={country.flags.alt} width="50px" />
         );
       case "area":
-        return country.area;
+        return formatNumber(country.area);
       case "name":
         return getCountryName(country);
       case "population":
-        return country.population;
+        return formatNumber(country.population);
       case "region":
         return t(`region_options.${country.region}`);
       default:

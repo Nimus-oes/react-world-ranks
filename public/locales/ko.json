@@ -3,7 +3,7 @@
     "flag": "국기",
     "name": "명칭",
     "population": "인구",
-    "area": "면적",
+    "area": "면적(km²)",
     "region": "지역"
   },
   "found_results_message_zero": "검색 결과 없음",
