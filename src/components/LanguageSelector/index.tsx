@@ -7,13 +7,13 @@ import { AppLangType } from "../../types/models";
 
 export default function LanguageSelector() {
   const { t, i18n } = useTranslation();
-  const hanleChange = (value: AppLangType) => {
+  const handleChange = (value: AppLangType) => {
     i18n.changeLanguage(value);
     localStorage.setItem("appLanguage", value);
   };
 
   return (
-    <Select.Root onValueChange={hanleChange}>
+    <Select.Root onValueChange={handleChange}>
       <Select.Trigger className={styles.trigger}>
         <GlobeIcon />
         <Select.Value placeholder={t("language_selector")} />

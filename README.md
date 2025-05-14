@@ -8,7 +8,8 @@ react-world-ranks
 ├─ package.json
 ├─ public
 │  └─ locales
-│     └─ en.json
+│     ├─ en.json
+│     └─ ko.json
 ├─ src
 │  ├─ App.css
 │  ├─ App.tsx
@@ -20,7 +21,6 @@ react-world-ranks
 │  ├─ components
 │  │  ├─ CountryTable
 │  │  │  ├─ CountryTable.module.css
-│  │  │  ├─ constants.tsx
 │  │  │  └─ index.tsx
 │  │  ├─ FoundResults
 │  │  │  ├─ FoundResults.module.css
@@ -28,25 +28,26 @@ react-world-ranks
 │  │  ├─ Header
 │  │  │  ├─ Header.module.css
 │  │  │  └─ index.tsx
+│  │  ├─ LanguageSelector
+│  │  │  ├─ LanguageSelector.module.css
+│  │  │  └─ index.tsx
 │  │  ├─ Main
 │  │  │  ├─ Main.module.css
 │  │  │  ├─ helpers.ts
 │  │  │  └─ index.tsx
 │  │  ├─ Region
 │  │  │  ├─ Region.module.css
-│  │  │  ├─ constants.ts
 │  │  │  └─ index.tsx
 │  │  ├─ SearchBar
 │  │  │  ├─ SearchBar.module.css
 │  │  │  └─ index.tsx
 │  │  ├─ SortBy
 │  │  │  ├─ SortBy.module.css
-│  │  │  ├─ constants.ts
 │  │  │  └─ index.tsx
 │  │  └─ Status
 │  │     ├─ Status.module.css
-│  │     ├─ constants.ts
 │  │     └─ index.tsx
+│  ├─ constants.ts
 │  ├─ i18n.ts
 │  ├─ index.css
 │  ├─ index.tsx
