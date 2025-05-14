@@ -9,6 +9,7 @@ import CountryTable from "../CountryTable";
 import type { Country, Filter } from "../../types/models";
 import styles from "./Main.module.css";
 import { createInitialFilters, sortFilterCountries } from "./helpers";
+import LanguageSelector from "../LanguageSelector";
 
 export default function Main() {
   async function fetchCountries() {
@@ -36,7 +37,10 @@ export default function Main() {
     <main className={styles.main}>
       <div className={styles.upperRow}>
         <FoundResults countries={filteredCountries} />
-        <SearchBar filters={filters} setFilters={setFilters} />
+        <div className={styles.upperLeftRow}>
+          <LanguageSelector />
+          <SearchBar filters={filters} setFilters={setFilters} />
+        </div>
       </div>
       <div className={styles.bottomRow}>
         <div className={styles.filterOptions}>

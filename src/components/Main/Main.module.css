@@ -1,4 +1,6 @@
 .main {
+  display: flex;
+  flex-direction: column;
   width: 94%;
   margin: 0 auto;
   padding: 24px 12px;
@@ -11,25 +13,28 @@
   background-color: var(--dark-bg);
 }
 
-.main,
-.upperRow,
-.bottomRow,
-.filterOptions {
+.upperRow {
   display: flex;
   flex-direction: column;
-}
-
-.bottomRow,
-.filterOptions {
-  gap: 32px;
-}
-
-.upperRow {
   gap: 24px;
 }
 
+.upperLeftRow {
+  display: flex;
+  gap: 10px;
+}
+
+.bottomRow {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
 .filterOptions {
+  display: flex;
+  flex-direction: column;
   font-weight: var(--fw-2);
+  gap: 32px;
 }
 
 @media screen and (min-width: 1024px) {

@@ -1,0 +1,37 @@
+.trigger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  border-radius: 11px;
+  border: 1px solid var(--stroke);
+  box-shadow: none;
+  padding: 0 10px 0 8px;
+  cursor: pointer;
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+}
+
+.trigger:focus {
+  outline: none;
+}
+
+.content {
+  z-index: 1;
+  min-width: var(--radix-select-trigger-width);
+  border-radius: 11px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.item {
+  background-color: var(--dark-bg);
+  padding: 10px;
+  text-align: center;
+}
+
+.item:hover,
+.item:focus {
+  outline: none;
+  background-color: var(--light-bg);
+}
