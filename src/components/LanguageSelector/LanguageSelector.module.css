@@ -20,6 +20,8 @@
 .content {
   z-index: 1;
   min-width: var(--radix-select-trigger-width);
+  border: 1px solid var(--stroke);
+  font-size: var(--fs-2);
   border-radius: 11px;
   overflow: hidden;
   cursor: pointer;

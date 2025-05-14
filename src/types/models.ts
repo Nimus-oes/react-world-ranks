@@ -3,8 +3,10 @@ import {
   SORT_CATEGORIES,
   STATUS_OPTIONS,
   COUNTRY_TABLE_HEADERS,
+  LANGUAGES,
 } from "../constants";
 
+export type AppLangType = (typeof LANGUAGES)[number]["lng"];
 export type HeaderType = (typeof COUNTRY_TABLE_HEADERS)[number];
 export type RegionType = (typeof REGIONS)[number];
 export type SorterType = (typeof SORT_CATEGORIES)[number];
@@ -24,6 +26,7 @@ export interface Country {
     svg: string;
     alt: string;
   };
+  translations: Record<string, Record<string, string>>;
 }
 
 export interface CountryProp {

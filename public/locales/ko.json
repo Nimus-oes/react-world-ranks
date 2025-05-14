@@ -34,5 +34,13 @@
   "fetch_loading_message": "불러오는 중...",
   "fetch_error_message": "국가 정보를 불러올 수 없습니다. 잠시 후 다시 이용해주세요.",
   "search_field_placeholder": "명칭이나 지역으로 검색",
-  "language_selector": "언어"
+  "language_selector": "언어",
+  "region_options": {
+    "Americas": "아메리카",
+    "Antarctic": "남극",
+    "Africa": "아프리카",
+    "Asia": "아시아",
+    "Europe": "유럽",
+    "Oceania": "오세아니아"
+  }
 }

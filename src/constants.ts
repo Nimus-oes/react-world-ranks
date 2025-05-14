@@ -1,7 +1,7 @@
 export const LANGUAGES = [
   { lng: "en", text: "English" },
   { lng: "ko", text: "한국어" },
-];
+] as const;
 
 export const COUNTRY_TABLE_HEADERS = [
   "flag",

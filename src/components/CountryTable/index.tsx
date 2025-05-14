@@ -1,6 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { COUNTRY_TABLE_HEADERS } from "../../constants";
-import type { Country, CountryFetchProp, HeaderType } from "../../types/models";
+import type {
+  AppLangType,
+  Country,
+  CountryFetchProp,
+  HeaderType,
+} from "../../types/models";
 import styles from "./CountryTable.module.css";
 
 export default function CountryTable({
@@ -8,7 +13,22 @@ export default function CountryTable({
   isPending,
   isError,
 }: CountryFetchProp) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const getAPILng = (code: AppLangType) => {
+    const apiLngs = { en: "", ko: "kor" };
+    return apiLngs[code];
+  };
+
+  const getCountryName = (country: Country) => {
+    const currentLng = i18n.language;
+    const apiLng = getAPILng(currentLng as AppLangType);
+    if (currentLng === "en") {
+      return country.name.common;
+    } else {
+      return country.translations[apiLng].common;
+    }
+  };
 
   const getCellData = (country: Country, key: HeaderType) => {
     switch (key) {
@@ -19,11 +39,11 @@ export default function CountryTable({
       case "area":
         return country.area;
       case "name":
-        return country.name.common;
+        return getCountryName(country);
       case "population":
         return country.population;
       case "region":
-        return country.region;
+        return t(`region_options.${country.region}`);
       default:
         return null;
     }

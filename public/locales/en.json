@@ -34,5 +34,13 @@
   "fetch_loading_message": "Loading...",
   "fetch_error_message": "Country data isn't available at the moment. Pease try again later.",
   "search_field_placeholder": "Search by name or region...",
-  "language_selector": "Lanuage"
+  "language_selector": "Lanuage",
+  "region_options": {
+    "Americas": "Americas",
+    "Antarctic": "Antarctic",
+    "Africa": "Africa",
+    "Asia": "Asia",
+    "Europe": "Europe",
+    "Oceania": "Oceania"
+  }
 }

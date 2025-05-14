@@ -3,10 +3,11 @@ import { Select } from "radix-ui";
 import { GlobeIcon } from "@radix-ui/react-icons";
 import { LANGUAGES } from "../../constants";
 import styles from "./LanguageSelector.module.css";
+import { AppLangType } from "../../types/models";
 
 export default function LanguageSelector() {
   const { t, i18n } = useTranslation();
-  const hanleChange = (value: string) => {
+  const hanleChange = (value: AppLangType) => {
     i18n.changeLanguage(value);
     localStorage.setItem("appLanguage", value);
   };

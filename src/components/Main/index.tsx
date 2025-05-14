@@ -14,7 +14,7 @@ import LanguageSelector from "../LanguageSelector";
 export default function Main() {
   async function fetchCountries() {
     const response = await fetch(
-      "https://restcountries.com/v3.1/all?fields=name,population,flags,area,region,unMember,independent,cca2",
+      "https://restcountries.com/v3.1/all?fields=name,population,flags,area,region,unMember,independent,cca2,translations",
     );
     if (!response.ok) {
       throw new Error("Failed to fetch country data.");
