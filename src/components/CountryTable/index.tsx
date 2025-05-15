@@ -1,12 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { COUNTRY_TABLE_HEADERS } from "../../constants";
-import type {
-  AppLangType,
-  Country,
-  CountryFetchProp,
-  HeaderType,
-} from "../../types/models";
+import type { CountryFetchProp } from "../../types/models";
 import styles from "./CountryTable.module.css";
+import { getCellData } from "./helpers";
 
 export default function CountryTable({
   countries,
@@ -14,44 +10,6 @@ export default function CountryTable({
   isError,
 }: CountryFetchProp) {
   const { t, i18n } = useTranslation();
-
-  const getAPILng = (code: AppLangType) => {
-    const apiLngs = { en: "", ko: "kor" };
-    return apiLngs[code];
-  };
-
-  const getCountryName = (country: Country) => {
-    const currentLng = i18n.language;
-    const apiLng = getAPILng(currentLng as AppLangType);
-    if (currentLng === "en") {
-      return country.name.common;
-    } else {
-      return country.translations[apiLng].common;
-    }
-  };
-
-  const formatNumber = (number: number) => {
-    return new Intl.NumberFormat(i18n.language).format(number);
-  };
-
-  const getCellData = (country: Country, key: HeaderType) => {
-    switch (key) {
-      case "flag":
-        return (
-          <img src={country.flags.svg} alt={country.flags.alt} width="50px" />
-        );
-      case "area":
-        return formatNumber(country.area);
-      case "name":
-        return getCountryName(country);
-      case "population":
-        return formatNumber(country.population);
-      case "region":
-        return t(`region_options.${country.region}`);
-      default:
-        return null;
-    }
-  };
 
   const messageCell = (i18nKey: string) => (
     <tr>
@@ -64,7 +22,7 @@ export default function CountryTable({
   const countryCell = countries.map((country) => (
     <tr key={country.cca2}>
       {COUNTRY_TABLE_HEADERS.map((header) => (
-        <td key={header}>{getCellData(country, header)}</td>
+        <td key={header}>{getCellData(country, header, t, i18n.language)}</td>
       ))}
     </tr>
   ));
