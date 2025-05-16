@@ -1,5 +1,5 @@
-import { REGIONS, SORT_CATEGORIES, STATUS_OPTIONS } from "../../constants";
-import type { Country, Filter } from "../../types/models";
+import { REGIONS, SORT_CATEGORIES, STATUS_OPTIONS } from "../../../constants";
+import type { LocalizedCountry, Filter } from "../../../types/models";
 
 export function createInitialFilters(): Filter {
   return {
@@ -14,15 +14,18 @@ export function createInitialFilters(): Filter {
   };
 }
 
-function sortCountries(countries: Country[], filters: Filter): Country[] {
+function sortCountries(
+  countries: LocalizedCountry[],
+  filters: Filter,
+): LocalizedCountry[] {
   return countries.sort((a, b) => {
     switch (filters.sorter) {
       case "population":
-        return b.population - a.population;
+        return b.population - a.population; // Raw data used instead of localized one for value comparison
       case "area":
-        return b.area - a.area;
+        return b.area - a.area; // Raw data used instead of localized one for value comparison
       case "name":
-        return a.name.common.localeCompare(b.name.common);
+        return a.localizedName.localeCompare(b.localizedName);
       case "region":
         return a.region.localeCompare(b.region);
       default:
@@ -35,7 +38,10 @@ function getTrueItems(array: [string, boolean][]): string[] {
   return array.filter(([, value]) => value === true).map(([key]) => key);
 }
 
-function filterByRegion(countries: Country[], filters: Filter): Country[] {
+function filterByRegion(
+  countries: LocalizedCountry[],
+  filters: Filter,
+): LocalizedCountry[] {
   const selectedRegions = getTrueItems(Object.entries(filters.region));
   if (selectedRegions.length) {
     return countries.filter((country) =>
@@ -46,24 +52,30 @@ function filterByRegion(countries: Country[], filters: Filter): Country[] {
   }
 }
 
-function filterByStatus(countries: Country[], filters: Filter): Country[] {
+function filterByStatus(
+  countries: LocalizedCountry[],
+  filters: Filter,
+): LocalizedCountry[] {
   const selectedStatus = getTrueItems(Object.entries(filters.status));
   if (selectedStatus.length) {
     return countries.filter((country) =>
-      selectedStatus.some((key) => country[key as keyof Country]),
+      selectedStatus.some((key) => country[key as keyof LocalizedCountry]),
     );
   } else {
     return countries;
   }
 }
 
-function searchCountries(countries: Country[], filters: Filter): Country[] {
+function searchCountries(
+  countries: LocalizedCountry[],
+  filters: Filter,
+): LocalizedCountry[] {
   const keyword = filters.searchKey.trim().toLowerCase();
 
   if (keyword) {
     return countries.filter(
       (country) =>
-        country.name.common.trim().toLowerCase().includes(keyword) ||
+        country.localizedName.trim().toLowerCase().includes(keyword) ||
         country.region.trim().toLowerCase().includes(keyword),
     );
   } else {
@@ -72,9 +84,9 @@ function searchCountries(countries: Country[], filters: Filter): Country[] {
 }
 
 export function sortFilterCountries(
-  countries: Country[],
+  countries: LocalizedCountry[],
   filters: Filter,
-): Country[] {
+): LocalizedCountry[] {
   let result = [...countries];
   result = filterByRegion(result, filters);
   result = filterByStatus(result, filters);

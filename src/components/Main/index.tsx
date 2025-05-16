@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 import FoundResults from "../FoundResults";
+import LanguageSelector from "../LanguageSelector";
 import SearchBar from "../SearchBar";
 import SortBy from "../SortBy";
 import Region from "../Region";
 import Status from "../Status";
 import CountryTable from "../CountryTable";
 import type { Country, Filter } from "../../types/models";
+import { createInitialFilters, sortFilterCountries } from "./helpers/filters";
+import { localizeData } from "./helpers/localization";
 import styles from "./Main.module.css";
-import { createInitialFilters, sortFilterCountries } from "./helpers";
-import LanguageSelector from "../LanguageSelector";
 
 export default function Main() {
   async function fetchCountries() {
@@ -30,8 +32,13 @@ export default function Main() {
     staleTime: Infinity,
   });
 
+  const { t, i18n } = useTranslation();
+  const localizedCountries = useMemo(
+    () => localizeData(data ?? [], i18n.language, t),
+    [data, i18n.language],
+  );
   const [filters, setFilters] = useState<Filter>(createInitialFilters());
-  const filteredCountries = sortFilterCountries(data ?? [], filters);
+  const filteredCountries = sortFilterCountries(localizedCountries, filters);
 
   return (
     <main className={styles.main}>

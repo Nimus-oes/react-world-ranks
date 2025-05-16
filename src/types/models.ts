@@ -12,6 +12,7 @@ export type RegionType = (typeof REGIONS)[number];
 export type SorterType = (typeof SORT_CATEGORIES)[number];
 export type StatusType = (typeof STATUS_OPTIONS)[number];
 
+// Country is the original data model as defined by the external REST Countries API
 export interface Country {
   name: {
     common: string;
@@ -29,12 +30,20 @@ export interface Country {
   translations: Record<string, Record<string, string>>;
 }
 
+// LocalizedCountry is is an app-specific extension of the original Country model
+export interface LocalizedCountry extends Country {
+  localizedName: string;
+  localizedRegion: string;
+  localizedPopluation: string;
+  localizedArea: string;
+}
+
 export interface CountryProp {
-  countries: Country[];
+  countries: LocalizedCountry[];
 }
 
 export interface CountryFetchProp {
-  countries: Country[];
+  countries: LocalizedCountry[];
   isPending: boolean;
   isError: boolean;
 }
