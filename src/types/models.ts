@@ -30,7 +30,7 @@ export interface Country {
   translations: Record<string, Record<string, string>>;
 }
 
-// LocalizedCountry is is an app-specific extension of the original Country model
+// LocalizedCountry is an app-specific extension of the original Country model
 export interface LocalizedCountry extends Country {
   localizedName: string;
   localizedRegion: string;
