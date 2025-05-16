@@ -12,12 +12,12 @@ import type { Country, Filter } from "../../types/models";
 import { createInitialFilters, sortFilterCountries } from "./helpers/filters";
 import { localizeData } from "./helpers/localization";
 import styles from "./Main.module.css";
+import { API_BASE_URL, API_PARAMS } from "../../constants";
 
 export default function Main() {
   async function fetchCountries() {
-    const response = await fetch(
-      "https://restcountries.com/v3.1/all?fields=name,population,flags,area,region,unMember,independent,cca2,translations",
-    );
+    const queryParams = API_PARAMS.join(",");
+    const response = await fetch(`${API_BASE_URL}/all?fields=${queryParams}`);
     if (!response.ok) {
       throw new Error("Failed to fetch country data.");
     }

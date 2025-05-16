@@ -1,3 +1,16 @@
+export const API_BASE_URL = "https://restcountries.com/v3.1";
+export const API_PARAMS = [
+  "name",
+  "population",
+  "flags",
+  "area",
+  "region",
+  "unMember",
+  "independent",
+  "cca2",
+  "translations",
+];
+
 export const LANGUAGES = [
   { lng: "en", text: "English" },
   { lng: "ko", text: "한국어" },
