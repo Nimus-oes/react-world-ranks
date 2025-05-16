@@ -27,7 +27,7 @@ function sortCountries(
       case "name":
         return a.localizedName.localeCompare(b.localizedName);
       case "region":
-        return a.region.localeCompare(b.region);
+        return a.localizedRegion.localeCompare(b.localizedRegion);
       default:
         return 0;
     }
