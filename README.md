@@ -33,7 +33,9 @@ react-world-ranks
 │  │  │  └─ index.tsx
 │  │  ├─ Main
 │  │  │  ├─ Main.module.css
-│  │  │  ├─ helpers.ts
+│  │  │  ├─ helpers
+│  │  │  │  ├─ filters.ts
+│  │  │  │  └─ localization.ts
 │  │  │  └─ index.tsx
 │  │  ├─ Region
 │  │  │  ├─ Region.module.css
