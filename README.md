@@ -1,6 +1,6 @@
 <h1 align="center">World Ranks | FE Project #3</h1>
 
-<p align="center"><img src="" width="70%"></p>
+<p align="center"><img src="public/project-ss-en.png" width="70%"></p>
 
 This responsive dashboard visualizes global country data from the REST Countries API, showing key metrics like population, area, region, and independence status. It supports multiple languages and allows users to interactively search, sort, and filter results. The app is built with a focus on i18n, accessibility, and efficient data fetching using Radix UI, react-i18next, and TanStack Query.
 
