@@ -381,7 +381,7 @@ export default i18n;
 
 ## Key Feature Implementations
 
-### Fetching the Latest Country Data
+### 💎 Fetching the Latest Country Data
 
 This application retrieves up-to-date country data using the REST Countries API, with network state managed by TanStack Query. Since it relies on a public API, the implementation is optimized to minimize unnecessary requests while ensuring a smooth and responsive user experience.
 
@@ -439,7 +439,7 @@ const { data, isPending, isError } = useQuery<Country[]>({
 
 <br />
 
-### Implementing Region and Status Filters
+### 💎 Implementing Region and Status Filters
 
 The app allows users to filter countries by region and status through the `<Region>` and `<Status>` components. These components update a shared filters state, which is managed in the `<Main>` component.
 
@@ -466,7 +466,7 @@ Whenever a filter is toggled, the updated state is passed to a utility function 
 
 <br />
 
-### Language-Aware Table Sorting
+### 💎 Language-Aware Table Sorting
 
 In multilingual applications, sorting content based on the selected language is essential for a consistent and intuitive user experience. For example, if the interface is set to Korean but country names are still sorted using English alphabetical order, it can feel disjointed and confusing.
 
@@ -534,3 +534,25 @@ function sortCountries(
 - For text-based sorting (name and region), the function uses `localeCompare()` on the translated values (`localizedName`, `localizedRegion`) to ensure language-aware sorting.
 
 - For numeric sorting (population and area), raw numeric values are used for accuracy, while displaying the localized formats (`localizedPopulation`, `localizedArea`) in the UI.
+
+<br />
+<br />
+
+## Resources
+
+- [React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/docs/basic/setup) by TypeScript Cheatsheets
+- [What Is I18n? A Simple Definition of Internationalization](https://phrase.com/blog/posts/i18n-a-simple-definition/) by Phrase
+- [A Guide to React Localization with i18next](https://phrase.com/blog/posts/localizing-react-apps-with-i18next/) by Phrase
+
+<br />
+
+## Author
+
+- [GitHub](https://github.com/Nimus-oes)
+- [Blog (English)](https://nimus.hashnode.dev/)
+- [Blog (Korean)](https://velog.io/@nimus/posts)
+- [Frontend Project Collection](https://github.com/Nimus-oes/frontend-project-collection)
+
+<br />
+
+This project is my solution to the World Ranks challenge from DevChallenges.
