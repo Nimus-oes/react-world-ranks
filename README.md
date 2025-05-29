@@ -2,7 +2,7 @@
 
 <p align="center"><img src="" width="70%"></p>
 
-This application is a responsive dashboard for exploring global country data using the REST Countries API. It displays key metrics—including population, area, region, and independence status—with support for multiple languages. Users can interactively search, sort, and filter the dataset to tailor the view to their needs. The app is built with a strong focus on internationalization (i18n), accessibility, and efficient data fetching, leveraging tools such as Radix UI, react-i18next, and TanStack Query.
+This responsive dashboard visualizes global country data from the REST Countries API, showing key metrics like population, area, region, and independence status. It supports multiple languages and allows users to interactively search, sort, and filter results. The app is built with a focus on i18n, accessibility, and efficient data fetching using Radix UI, react-i18next, and TanStack Query.
 
 ### <div align="center"><a href="https://nimus-oes.github.io/react-world-ranks/">Go to Live Demo</a></div>
 
@@ -27,7 +27,7 @@ This application is a responsive dashboard for exploring global country data usi
 
 Project Requirements
 
-- Users must be able to filter and sort the list of countries based on selected criteria.
+- Users should be able to filter and sort the list of countries based on selected criteria.
 - ✅ **Real-Time Data**: Retrieves the most up-to-date country information from the REST Countries API.
 - ✅ **Search & Filter**: Supports combined queries using search terms, regions, membership status (e.g., UN member), and sorting options to refine results.
 - ✅ **Localization**: Both the UI and country-specific content adapt to the user’s selected language.
@@ -94,9 +94,7 @@ react-world-ranks
 
 ## Single Source Design
 
-This application centralizes all filter-related configuration—such as regions, sort categories, and country statuses—using constants defined in the constants.ts file. Arrays like REGIONS, SORT_CATEGORIES, and STATUS_OPTIONS act as a single source of truth across the application. These constants are used for type declarations, building the filter UI, initializing state, and mapping translation keys for internationalization.
-
-By consolidating these values in one place, the codebase remains consistent, maintainable, and scalable. This approach reduces redundancy and simplifies future updates or additions to filter options.
+This application defines all core data—such as regions, sort categories, and country status—using constants defined in the `constants.ts` file. Arrays like `REGIONS`, `SORT_CATEGORIES`, and `STATUS_OPTIONS` act as a single source of truth across the application. These constants are used for type declarations, building the filter UI, initializing state, and mapping translation keys for internationalization.
 
 ### Key Constants
 
@@ -119,13 +117,13 @@ By consolidating these values in one place, the codebase remains consistent, mai
 
 ## Type System
 
-This project uses TypeScript to establish a strict and maintainable type system, ensuring type safety and developer productivity through robust autocomplete and compile-time checks. All custom types are defined in `/src/types/models.ts` and fall into the following categories:
+This project uses TypeScript to establish a strict and maintainable type system, ensuring type safety and developer productivity through autocomplete and compile-time checks. All custom types are defined in `/src/types/models.ts` and fall into the following categories:
 
 <br />
 
 ### 1. Union Types Derived from Constants
 
-These union types are generated directly from constant arrays in constants.ts. This approach guarantees consistency throughout the codebase and enhances developer experience with intelligent autocompletion.
+These union types are derived directly from the constant arrays in `constants.ts`, ensuring consistent value usage throughout the codebase and enabling autocomplete support.
 
 ```tsx
 export type AppLangType = (typeof LANGUAGES)[number]["lng"];
@@ -139,7 +137,7 @@ export type StatusType = (typeof STATUS_OPTIONS)[number];
 
 ### 2. API Response Types – Raw Data Model
 
-The `Country` interface represents the structure of the response returned by the REST Countries API. It allows for safe access to specific data fields throughout the app.
+The `Country` interface defines the structure of the data returned by the REST Countries API, enabling type-safe access to specific fields throughout the application.
 
 ```tsx
 export interface Country {
@@ -164,7 +162,7 @@ export interface Country {
 
 ### 3. API Response Types – Localized Extension Model
 
-The `LocalizedCountry` interface extends Country by adding localized fields for display purposes. This allows the app to present data in the user's language without modifying the original API structure.
+The `LocalizedCountry` interface extends `Country` by adding localized fields for display purposes. This allows the application to present data in the user's language without modifying the original API structure.
 
 ```tsx
 export interface LocalizedCountry extends Country {
@@ -179,7 +177,7 @@ export interface LocalizedCountry extends Country {
 
 ### 4. State Types
 
-The `Filter` interface defines the structure of the app’s filtering state. It captures user selections for region, status, sorting, and search input. Boolean maps are used for multi-select filters.
+The `Filter` interface defines the structure of the application's filter state, capturing user input for region, status, sorting, and search. Multi-select filters use boolean maps to track selected options.
 
 ```tsx
 export interface Filter {
@@ -194,7 +192,7 @@ export interface Filter {
 
 ### 5. Component Prop Types
 
-These interfaces define the props passed between components, promoting type-safe communication across the app. Most are composed using the custom types listed above.
+These interfaces specify the props exchanged between components, ensuring type-safe communication throughout the application. Most are composed using the custom types defined earlier.
 
 ```tsx
 export interface CountryProp {
@@ -218,13 +216,13 @@ export interface FilterProp {
 
 ## State Management
 
-The filtering logic in this application is powered by a centralized filters state object. This unified state holds all relevant filter values, including the search term, sort criteria, selected regions, and country statuses.
+The application's filtering logic is driven by a centralized `filters` state object, which holds all relevant values, including the search term, sort criteria, selected regions, and country statuses.
 
 <br />
 
 ### Centralized State Structure
 
-All filters are combined into a single state object rather than being managed independently. This approach promotes consistency, simplifies updates, and enhances maintainability. Since filter values often work in combination, a centralized structure ensures coordinated state updates and makes debugging and expansion easier.
+All filters are managed within a single state object rather than as separate states. This centralized approach ensures consistency, simplifies updates, and improves maintainability. Since multiple filter values are often applied together, combining them into one object makes it easier to apply filtering logic, trace state changes, and scale the system as new filters are introduced.
 
 <br />
 
@@ -254,15 +252,17 @@ All filters are combined into a single state object rather than being managed in
 
 <br />
 
-### State Declaration and Initialization
+### Declaring and Initializing State
 
 #### Lifted State in `<Main>`
 
-The filters state is declared in the `<Main>` component—the nearest common ancestor of all filter-related components—so it can be shared and updated across the UI.
+The `filters` state is declared in the `<Main>` component—the nearest common ancestor of all filter-related components—so it can be shared and updated across the UI.
 
 ```tsx
 const [filters, setFilters] = useState<Filter>(createInitialFilters());
 ```
+
+<br />
 
 #### Dynamic Initialization with `createInitialFilters()`
 
@@ -297,8 +297,6 @@ The `filters` state is passed from `<Main>` to child components via props. Each 
  └─ <Status>     // Updates 'status'
 ```
 
-This unidirectional state flow ensures predictable behavior and clear data ownership throughout the component tree.
-
 <br />
 <br />
 
@@ -310,7 +308,7 @@ This project implements internationalization using the react-i18next library and
 
 ### Why Internationalization Matters
 
-Building for i18n from the start avoids expensive refactoring later. Without it, adding languages retroactively can introduce significant complexity. Even if multilingual support isn’t an immediate requirement, planning for it offers several advantages:
+Building with i18n in mind from the beginning helps avoid costly refactoring down the line. Without it, adding new languages later can introduce significant complexity. Even if multilingual support isn’t an immediate requirement, planning for it early brings several key advantages:
 
 - ✅ Reduces localization time and costs
 - ✅ Improves code maintainability
@@ -320,21 +318,21 @@ Building for i18n from the start avoids expensive refactoring later. Without it,
 
 ### How Multilingual Support Works in This App
 
-1. On app startup, the user's saved language is retrieved from localStorage. If none exists, the app defaults to English.
+1. When the app starts, it checks `localStorage` for a saved language preference. If none exists, the app defaults to English.
 
-2. The corresponding language JSON file is loaded dynamically from the /locales directory.
+2. The corresponding language JSON file is loaded dynamically from the `/locales` directory.
 
-3. Components access translated strings via the useTranslation() hook from react-i18next.
+3. Components access translated strings via the `useTranslation()` hook from react-i18next.
 
-4. When the user selects a new language, i18n.changeLanguage() is called and the choice is persisted in localStorage.
+4. When a user selects a new language, `i18n.changeLanguage()` is called and the selection is persisted in `localStorage`.
 
-5. The app reloads the relevant translation file and automatically re-renders all components using useTranslation().
+5. The app reloads the relevant translation file and automatically re-renders all components that use `useTranslation()`.
 
 <br />
 
 ### Internationalization Setup
 
-The app initializes react-i18next using a dedicated configuration file (i18n.ts):
+The app initializes react-i18next using a dedicated configuration file (`i18n.ts`):
 
 ```tsx
 import i18n from "i18next";
@@ -362,47 +360,47 @@ i18n
 export default i18n;
 ```
 
-#### Key Features of the i18n Setup
-
 - **Separation of Code and Translations**
 
-  Translations are stored in JSON files (en.json, ko.json, etc.) inside the /locales folder. Adding a new language requires only a new file with the same key structure.
+  All translations are stored in JSON files (e.g., `en.json`, `ko.json`) within the `/locales` folder. Adding a new language only requires creating a new file with the same key structure.
 
 - **Dynamic Language Loading**
 
-  The i18next-http-backend plugin loads only the selected language file at runtime, reducing the initial bundle size and simplifying language management.
+  The `i18next-http-backend` plugin loads only the selected language file at runtime, reducing the initial bundle size and streamlining language management.
 
 - **Persistent Language Selection**
 
-  The selected language is stored in localStorage to maintain the user's preference across sessions.
+  The selected language is stored in `localStorage` to maintain the user's preference across sessions.
 
 - **Fallback Language**
 
-  If a key is missing in the selected language, the app gracefully falls back to English (fallbackLng: "en"), ensuring the interface remains functional.
+  If a key is missing in the selected language, the app gracefully falls back to English (`fallbackLng: "en"`), ensuring a consistent and functional UI.
 
 <br />
 <br />
 
 ## Key Feature Implementations
 
-<br />
-
 ### Fetching the Latest Country Data
 
-This application retrieves real-time country data using the REST Countries API, with network state management handled by TanStack Query. Given the use of a public API, the implementation is optimized to reduce unnecessary API calls while maintaining a smooth and responsive user experience.
+This application retrieves up-to-date country data using the REST Countries API, with network state managed by TanStack Query. Since it relies on a public API, the implementation is optimized to minimize unnecessary requests while ensuring a smooth and responsive user experience.
+
+<br />
 
 #### How Data Fetching Works
 
-1. A fetchCountries query function is defined in the `<Main>` component.
+1. A `fetchCountries` query function is defined in the `<Main>` component.
 
-2. This function is passed to `useQuery()` from TanStack Query to perform the asynchronous API call.
+2. This function is passed to `useQuery()` from TanStack Query to handle the asynchronous API call.
 
-3. The returned values—data, isPending, and isError—are passed as props to the `<CountryTable>` component.
+3. The returned values—`data`, `isPending`, and `isError`—are passed as props to the `<CountryTable>` component.
 
-4. `<CountryTable>` renders its content based on the current request state:
+4. `<CountryTable>` renders content based on the current request state:
 
    - Loading/Error: Displays loading or error messages.
-   - Success: Renders the filtered and localized list of countries (not raw API output).
+   - Success: Displays a filtered and localized list of countries
+
+<br />
 
 #### Query Function Design
 
@@ -419,6 +417,8 @@ async function fetchCountries() {
 }
 ```
 
+<br />
+
 #### useQuery Configuration
 
 ```tsx
@@ -431,52 +431,52 @@ const { data, isPending, isError } = useQuery<Country[]>({
 });
 ```
 
-- `staleTime`: Infinity: Marks the data as perpetually fresh. The query will not re-fetch unless the app is reloaded.
+- `staleTime: Infinity`: Marks the data as always fresh. The query will automatically not re-fetch unless the app is reloaded.
 
-- `refetchOnWindowFocus: false`: Prevents automatic re-fetching when the user switches back to the app tab.
+- `refetchOnWindowFocus: false`: Prevents re-fetching when the user returns to the app after switching tabs.
 
-- `refetchOnReconnect: false`: Disables re-fetching when the network connection is restored. Existing data is retained.
+- `refetchOnReconnect: false`: Disables automatic re-fetching when the network connection is restored. Previously fetched data is retained.
 
 <br />
 
 ### Implementing Region and Status Filters
 
-The `<Region>` and `<Status>` components handle user interactions for region and status-based filtering. When a user selects or deselects an option, these components update the shared filters state managed by the `<Main>` component.
+The app allows users to filter countries by region and status through the `<Region>` and `<Status>` components. These components update a shared filters state, which is managed in the `<Main>` component.
 
-The updated state is passed to a filtering utility function located at src/Main/helpers/filters.ts, which processes the logic to determine which countries should be displayed.
-
-#### How Filtering Works
-
-1. Extract Selected Options
-
-   The helper function first inspects the filters state to determine which region and status options have been selected (i.e., those set to true). Only these active values are considered for filtering.
-
-2. No Filters Selected
-
-   If no region or status options are selected (i.e., all values are false), the function returns the unfiltered list of countries.
-
-3. Apply Filters
-
-   If any filters are selected, the function iterates through the list of countries and applies the following logic:
-
-   - Region Filter: Includes countries where country.region matches one of the selected region keys.
-   - Status Filter: Includes countries where the selected status keys (e.g., unMember, independent) exist in the country object and are true.
-
-This filtering logic ensures that only countries matching all active criteria are included in the final display.
+Whenever a filter is toggled, the updated state is passed to a utility function (`src/Main/helpers/filters.ts`) that handles the actual filtering logic. This ensures that only countries matching the selected criteria are displayed.
 
 <br />
 
-### Sorting Table Content by Language
+#### How Filtering Works
 
-When sorting data in a multilingual table, one critical factor to consider is language-specific sorting rules. In multilingual applications, switching the language should also affect how data—like country names or regions—is sorted to ensure a consistent user experience.
+1. Identify Active Filters
 
-For example, if the app is set to Korean but country names are still being sorted alphabetically based on English names, users may find the behavior confusing and inconsistent.
+   The filtering function begins by extracting the selected region and status values—those marked `true` in the filters state. Only these active options are used to evaluate countries.
 
-To solve this, the application implements language-aware sorting using the following strategy.
+2. Handle No Selection Case
 
-#### Data Model for Sorting
+   If no filters are selected (i.e., all options are `false`), the function returns the original list of countries without applying any filters.
 
-Sorting is based on the LocalizedCountry type, which extends the original Country type (from the REST Countries API) by adding localized fields such as translated names and formatted numbers.
+3. Apply Region and Status Filters
+
+   When filters are active, the function evaluates each country against them:
+
+   - Region Filter: Includes countries if their `region` matches one of the selected region values.
+   - Status Filter: Includes countries if they have the selected `status` fields (e.g., `unMember`, `independent`) and those fields are `true`.
+
+<br />
+
+### Language-Aware Table Sorting
+
+In multilingual applications, sorting content based on the selected language is essential for a consistent and intuitive user experience. For example, if the interface is set to Korean but country names are still sorted using English alphabetical order, it can feel disjointed and confusing.
+
+To address this, the application implements language-aware sorting by localizing the data before it is sorted and displayed.
+
+<br />
+
+#### Localized Data Model
+
+Sorting is performed on a `LocalizedCountry` type, which extends the base `Country` type from the REST Countries API by adding translated and formatted fields:
 
 ```tsx
 interface LocalizedCountry {
@@ -501,11 +501,13 @@ interface LocalizedCountry {
 }
 ```
 
-These localized fields are populated after data is fetched, using a helper function defined in `src/Main/helpers/localization.ts`.
+These localized fields are populated after the initial API fetch using a helper function in `src/Main/helpers/localization.ts.`
+
+<br />
 
 #### Sorting Logic
 
-Once the LocalizedCountry[] array is fully processed with localized content, it is passed to the sortCountries() function, which sorts the list based on the current filter settings:
+After localization, the `LocalizedCountry[]` array is passed to `sortCountries()`, which sorts the data based on the active sort option:
 
 ```tsx
 function sortCountries(
@@ -529,6 +531,6 @@ function sortCountries(
 }
 ```
 
-- For text-based sorting (name and region), the function uses localeCompare() on the localized fields localizedName and localizedRegion to sort according to the selected language.
+- For text-based sorting (name and region), the function uses `localeCompare()` on the translated values (`localizedName`, `localizedRegion`) to ensure language-aware sorting.
 
-- For numeric sorting (population and area), the original values are used for sorting accuracy. However, the displayed values in the UI use the localized formats (localizedPopulation, localizedArea) to match the user’s locale.
+- For numeric sorting (population and area), raw numeric values are used for accuracy, while displaying the localized formats (`localizedPopulation`, `localizedArea`) in the UI.
