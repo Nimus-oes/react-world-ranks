@@ -10,7 +10,7 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <Header />
       <Main />
-      <ReactQueryDevtools initialIsOpen={false} />
+      {import.meta.env.DEV && <ReactQueryDevtools initialIsOpen={false} />}
     </QueryClientProvider>
   );
 }
